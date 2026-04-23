@@ -1,3 +1,5 @@
 <Solution>
   <Project Path="PowerPlant.Api/PowerPlant.Api.csproj" />
+  <Project Path="PowerPlant.Models/PowerPlant.Models.csproj" />
+  <Project Path="PowerPlant.Services/PowerPlant.Services.csproj" />
 </Solution>

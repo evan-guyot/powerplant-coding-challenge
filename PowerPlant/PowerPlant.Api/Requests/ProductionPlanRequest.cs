@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using PowerPlant.Models;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace PowerPlant.Api.Requests
@@ -60,12 +61,5 @@ namespace PowerPlant.Api.Requests
         [Required]
         [Range(0, double.MaxValue, ErrorMessage = "Pmax must be positive")]
         public double Pmax { get; set; }
-    }
-
-    public enum PowerPlantType
-    {
-        GasFired,
-        TurboJet,
-        WindTurbine
     }
 }
