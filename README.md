@@ -1,5 +1,53 @@
 # powerplant-coding-challenge
 
+## Deployment
+
+1. Clone the project
+```
+https://github.com/evan-guyot/powerplant-coding-challenge.git
+```
+
+2.  Navigate to the project, then to the .NET solution
+
+```
+cd powerplant-coding-challenge/PowerPlant
+```
+
+3. Run this command to create to the Docker Image
+```
+docker build -t powerplant-api -f PowerPlant.Api/Dockerfile .
+```
+
+4. Start a container based on the Docker Image you created
+
+```
+docker run -p 8888:8888 powerplant-api
+```
+
+5. Try the endpoint
+```
+POST http://localhost:8888/productionplan
+```
+
+## Application Architecture
+
+This .NET 10 application is structured in 3 layers:
+
+| Layer | Responsibility | Contents |
+|---|---|---|
+| **Api** | Application base and HTTP Requests entry point | Controllers, Request payloads, Exception middleware |
+| **Services** | Business logic | Services and DTOs |
+| **Models** | Core domain | PowerPlant, Fuels, ProductionPlan classes and PowerPlantType enum |
+
+## .NET Core features used
+
+- Dependecy injection with the service : `ProductionPlanService`/`IProductionPlanService`
+
+- Exception MiddleWare : `PowerPlant/PowerPlant.Api/Middlewares/ExceptionMiddleware.cs`
+
+- Schema Validation, with the attributes `[Required]`, `[Range(0,1,ErrorMessage("Must be between 0 and 1))]`, ...
+
+- API Endpoint documentation : `[ProducesResponseType(typeof(List<PowerPlantAllocationDto>), StatusCodes.Status200OK)]`
 
 ## Welcome !
 
