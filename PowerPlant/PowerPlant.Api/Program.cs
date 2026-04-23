@@ -11,6 +11,8 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<IProductionPlanService, ProductionPlanService>();
 
+builder.WebHost.UseUrls("http://+:8888");
+
 var app = builder.Build();
 
 app.UseMiddleware<ExceptionMiddleware>();
